@@ -103,6 +103,7 @@ svg {
   cursor: pointer;
   border-radius: 1rem;
   margin-top: 3rem;
+  outline: none;
 }
 
 select {
