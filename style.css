@@ -92,6 +92,7 @@ svg {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.5s ease;
+  outline: none;
 }
 
 .play {
@@ -112,4 +113,13 @@ select {
   font-size: 1rem;
   border-radius: 1rem;
   outline: none;
+}
+
+@keyframes playTrack {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
 }

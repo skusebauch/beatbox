@@ -17,7 +17,27 @@ class DrumKit {
     let step = this.index % 8;
     // console.log(`step ${step} and index ${this.index}`);
     const activeBars = document.querySelectorAll(`.b${step}`);
-    //console.log(step);
+    // console.log(step);
+    activeBars.forEach((bar) => {
+      bar.style.animation = `playTrack 0.3s alternate ease-in-out 2`;
+      // check if pads are active
+      if (bar.classList.contains("active")) {
+        // check each sound
+        if (bar.classList.contains("kick-pad")) {
+          // restart audiotrack to 0
+          this.kickAudio.currentTime = 0;
+          this.kickAudio.play();
+        }
+        if (bar.classList.contains("snare-pad")) {
+          this.snareAudio.currentTime = 0;
+          this.snareAudio.play();
+        }
+        if (bar.classList.contains("hihat-pad")) {
+          this.hihatAudio.currentTime = 0;
+          this.hihatAudio.play();
+        }
+      }
+    });
     this.index++;
   }
   start() {
@@ -35,6 +55,9 @@ const drumKit = new DrumKit();
 
 drumKit.pads.forEach((pad) => {
   pad.addEventListener("click", drumKit.activePad);
+  pad.addEventListener("animationend", function () {
+    this.style.animation = "";
+  });
 });
 
 // you cannot simply use drumKit.start as argument (this would be the btn)
