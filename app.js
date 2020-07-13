@@ -13,6 +13,7 @@ class DrumKit {
     this.isPlaying = null;
     this.selects = document.querySelectorAll("select");
     this.muteBtns = document.querySelectorAll(".mute");
+    this.tempoSlider = document.querySelector(".tempo-slider");
   }
 
   // class Methods - prototypes
@@ -117,6 +118,18 @@ class DrumKit {
       }
     }
   }
+  changeTempo(event) {
+    const tempoText = document.querySelector(".tempo-nr");
+    this.bpm = event.target.value;
+    tempoText.innerText = event.target.value;
+  }
+  updateTempo(event) {
+    clearInterval(this.isPlaying);
+    this.isPlaying = null;
+    if (this.playBtn.classList.contains("active")) {
+      this.start();
+    }
+  }
 }
 
 // new instance of object
@@ -149,4 +162,13 @@ drumKit.muteBtns.forEach((btn) => {
   btn.addEventListener("click", (event) => {
     drumKit.mute(event);
   });
+});
+
+// I use input to dynamically update the text (change only runs after i let go)
+drumKit.tempoSlider.addEventListener("input", (event) => {
+  drumKit.changeTempo(event);
+});
+
+drumKit.tempoSlider.addEventListener("change", (event) => {
+  drumKit.updateTempo(event);
 });
