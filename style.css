@@ -61,14 +61,40 @@ svg {
   background: rgb(153, 65, 212);
 }
 
+@media only screen and (max-width: 75em) {
+  .hihat-track,
+  .snare-track,
+  .kick-track {
+    flex-direction: column;
+  }
+  .controls {
+    width: 100%;
+    margin-bottom: 1rem !important;
+    justify-content: space-evenly !important;
+  }
+}
+
 .hihat-track,
 .snare-track,
 .kick-track {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 70%;
   margin-top: 5rem;
+}
+
+@media only screen and (max-width: 50em) {
+  .kick,
+  .snare,
+  .hihat {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .controls {
+    width: 100%;
+    margin-bottom: 1rem !important;
+    justify-content: space-evenly !important;
+  }
 }
 
 .kick,
@@ -76,9 +102,19 @@ svg {
 .hihat {
   display: flex;
 }
-
+@media only screen and (max-width: 25em) {
+  h1 {
+    text-align: center;
+  }
+  .controls {
+    width: 100%;
+    margin-bottom: 1rem !important;
+    justify-content: space-evenly !important;
+  }
+}
 .controls {
   display: flex;
+  width: 25rem;
   justify-content: space-between;
   align-items: center;
   flex: 1;
@@ -109,12 +145,30 @@ svg {
   outline: none;
 }
 
+@media only screen and (max-width: 25em) {
+  #kick-select,
+  #snare-select,
+  #hihat-select {
+    width: 9rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.75rem;
+  }
+}
+
 select {
   width: 10rem;
   padding: 1rem;
   font-size: 1rem;
   border-radius: 1rem;
   outline: none;
+  background: rgb(240, 240, 240);
+}
+@media only screen and (max-width: 25em) {
+  #mute-btn {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
 }
 
 .mute.active {
@@ -138,7 +192,7 @@ select {
 }
 .tempo p {
   font-size: 1.5rem;
-  margin: 2rem
+  margin: 2rem auto;
   text-align: center;
 }
 
