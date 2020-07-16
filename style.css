@@ -67,6 +67,7 @@ svg {
   .snare-track,
   .kick-track {
     flex-direction: column;
+    width: 100%;
   }
   .controls {
     width: 100%;
@@ -111,6 +112,12 @@ svg {
     width: 100%;
     margin-bottom: 1rem !important;
     justify-content: space-evenly !important;
+  }
+  .kick-pad,
+  .snare-pad,
+  .hihat-pad {
+    width: 4rem;
+    height: 4rem;
   }
 }
 .controls {
